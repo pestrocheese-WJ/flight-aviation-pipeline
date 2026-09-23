@@ -1,10 +1,9 @@
 # flight-aviation-pipeline
-Flight data pipeline on Databricks using Delta Lake and Medallion Architecture (Bronze, Silver, Gold)
-# Flight Data Pipeline (Databricks Medallion)
 
-A batch pipeline built on Databricks to process flight operational data using a classic Medallion architecture (Bronze -> Silver -> Gold).
 
-The main goal here was to build a clean, modular pipeline that handles incremental ingestion and data cleansing without overcomplicating things.
+This project demonstrates a aviation data pipeline built on the **Databricks Lakehouse Platform** and managed via **Unity Catalog**. 
+
+The pipeline ingests raw, semi-structured flight logs from an **Azure Data Lake Storage (ADLS Gen2)** landing zone through Managed Volumes. Employing a strict **Medallion Architecture (Bronze $\rightarrow$ Silver $\rightarrow$ Gold)**, it implements an in-place file tracking mechanism for incremental ingestion and enforces a **Quarantine Pattern (`_bad_rec`)** to isolate corrupt schema records without breaking the pipeline. Validated records undergo SCD Type 1 upserts in the Silver layer and are aggregated into analytics-ready **Gold Delta Tables**, delivering high-performance operational metrics for flight delays and carrier performance. The entire workflow is fully orchestrated as an idempotent multi-task DAG using **Databricks Job**.
 
 ---
 
