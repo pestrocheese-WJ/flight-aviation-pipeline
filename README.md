@@ -9,8 +9,10 @@ The main goal here was to build a clean, modular pipeline that handles increment
 ---
 
 ## Architecture & Data Flow
+<img width="1111" height="637" alt="{EEC2F490-8EE7-491D-9964-3EA637FCFB33}" src="https://github.com/user-attachments/assets/563791ad-0e41-43c0-9f06-311c063a7c6f" />
 
 Orchestrated via Databricks Workflows (`Flight job`):
+<img width="1211" height="438" alt="image" src="https://github.com/user-attachments/assets/f5115530-f6ae-4e2b-9cac-569f8b95bd39" />
 
 1. **Bronze (Raw Ingestion):**
    * Reads raw flight CSVs from Databricks Volumes.
